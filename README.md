@@ -113,3 +113,85 @@ Open [http://localhost:3000](http://localhost:3000) to see the demo.
 
 - [Supabase Auth Documentation](https://supabase.com/docs/guides/auth)
 - [Next.js Documentation](https://nextjs.org/docs)
+
+###############################################
+
+## Notes
+
+How to Build Authentication with Supabase Auth + Next.js 16 (Full Step-by-Step Tutorial)
+https://www.youtube.com/watch?v=n_sNri8TGGo
+
+Nextjs 16
+
+1. create nextjs app:
+command: npm create next-app@latest
+
+2. build libraries:
+command: npm install
+
+3. run app:
+command: nom run dev
+
+4. install Supabase Auth:
+command: npm install @supabase/ssr @supabase/supabase-js
+
+5. home page: app/page.tsx
+
+6. configuration of connection to supabase:
+lib/supabase/server-client-ts
+
+in supabase project, click connect, then API Keys:
+    Project URL -> NEXT_PUBLIC_SUPABASE_URL
+    Anon Key (Legacy) -> NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+    put in .env.local
+
+7. Flow 1: Supabase Authentication: Email + Password:
+app/email-password
+
+email confirm mail to redirect to a page different of localhost:
+    EmailPasswordDemo.tsx: uncomment:
+        options: {
+          emailRedirectTo: `${window.location.origin}/welcome`,
+        }
+
+    Go Supabase/Authentication:
+        Site URL: http://localhost:3000
+        redirect URLs: add your domain like https://my-domain/welcome
+
+8. Flow 2: Google Login (Google Provider): Google Auth
+app/components/AuthDemoPage.tsx
+app/email-password/EmailPasswordDemo.tsx
+
+Register our Supaerbase app in Google Cloud:
+    https://cloud.google.com/
+
+    organization: wodzarod
+    project: proctor-simulator
+    $300 in free credit
+
+        APIs & Services/Credentials
+            Configure consent screen
+            Click Get Started
+
+            App name: Supabase
+            User support email: zarod2019@gmail.com
+            Audience: External
+            Contact Information: zarod2019@gmail.com
+            Finish, Create
+
+        Create our OAuth client:
+            Overview/Create OAuth client
+            Clients:
+                Application type: Web application
+                Name: Supabase Client
+
+            Go Supabase/Authentication/Sign In Providers
+                Google, click Disabled, copy Callback URL (for OAuth)
+                and paste in Google Cloud console in Authorized redirect URIs
+
+                Copy Client ID and Client secret into Supabase (Client IDs and Client Secret (for OAuth))
+
+                check Enable Sign in with Google
+
+app/google-login

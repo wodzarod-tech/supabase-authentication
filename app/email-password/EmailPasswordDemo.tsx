@@ -44,15 +44,16 @@ export default function EmailPasswordDemo({ user }: EmailPasswordDemoProps) {
       const { error, data } = await supabase.auth.signUp({
         email,
         password,
-        options: {
+        /*options: {
           emailRedirectTo: `${window.location.origin}/welcome`,
-        }
+        }*/
       });
       if (error) {
         setStatus(error.message);
       } else {
         setStatus("Check your inbox to confirm the new account.");
       }
+      console.log({data});
     } else {
       const { error, data } = await supabase.auth.signInWithPassword({
         email,
