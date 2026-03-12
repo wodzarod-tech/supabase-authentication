@@ -1,4 +1,14 @@
+/* Architecture:
+layout.tsx
+   ↓
+Navbar
+   ↓
+UserMenu
+*/
+
 import Link from "next/link";
+//import { createSupabaseServerClient } from "@/lib/supabase/server-client";
+import Navbar from "./components/Navbar";
 
 const demos = [
   {
@@ -37,8 +47,17 @@ const demos = [
   },
 ] as const;
 
-export default function Home() {
+export default async function Home() {
+  /*const supabase = await createSupabaseServerClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  */
   return (
+    <>
+    {/*<Navbar user={user} />*/}
+    <main>
     <div className="min-h-screen bg-gradient-to-br from-[#02050b] via-[#050c1d] to-[#071426] text-slate-100">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-12 px-6 py-16">
         <header className="space-y-4">
@@ -92,5 +111,7 @@ export default function Home() {
         </section>
       </div>
     </div>
+    </main>
+    </>
   );
 }

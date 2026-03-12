@@ -195,3 +195,6 @@ Register our Supaerbase app in Google Cloud:
                 check Enable Sign in with Google
 
 app/google-login
+
+9. Used for Eye, EyeOff:
+npm install lucide-react

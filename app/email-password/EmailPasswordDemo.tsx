@@ -51,7 +51,8 @@ export default function EmailPasswordDemo({ user }: EmailPasswordDemoProps) {
       if (error) {
         setStatus(error.message);
       } else {
-        setStatus("Check your inbox to confirm the new account.");
+        //setStatus("Check your inbox to confirm the new account.");
+        setStatus("If this email isn't registered yet, you'll receive a confirmation email shortly.");
       }
       console.log({data});
     } else {
