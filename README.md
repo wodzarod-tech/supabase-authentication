@@ -118,7 +118,7 @@ Open [http://localhost:3000](http://localhost:3000) to see the demo.
 
 ## Notes
 
-How to Build Authentication with Supabase Auth + Next.js 16 (Full Step-by-Step Tutorial)
+How to Build Authentication with Supabase Auth + Next.js 16 (Full Step-by-Step Tutorial): video.mp4
 https://www.youtube.com/watch?v=n_sNri8TGGo
 
 Nextjs 16
@@ -138,7 +138,7 @@ command: npm install @supabase/ssr @supabase/supabase-js
 5. home page: app/page.tsx
 
 6. configuration of connection to supabase:
-lib/supabase/server-client-ts
+lib/supabase/server-client.ts
 
 in supabase project, click connect, then API Keys:
     Project URL -> NEXT_PUBLIC_SUPABASE_URL
